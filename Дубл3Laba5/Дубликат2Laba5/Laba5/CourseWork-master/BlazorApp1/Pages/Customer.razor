@@ -1,0 +1,97 @@
+﻿@page "/Customer/{CustomerId}"
+@using BlazorApp1.Data.Services
+@using BlazorApp1.Data.Models
+@inject NavigationManager _navigationManager
+
+<div class="container-fluid">
+    <div class="break-min"></div>
+    <h3> Информация об авторе </h3>
+    <div class="break-min"></div>
+</div>
+
+@if (CurrentCustomer != null)
+{
+	<div class="customerBlock">
+@*		<div class="field">
+			<label class="label">Идентификатор</label> <input class="form-control valueField"
+	type="text" value="@CurrentCustomer.Id" aria-label="Disabled input example" disabled readonly>
+		</div>*@
+		<div class="field">
+	<label class="label">ФИО</label> <input class="form-control valueField" type="text"
+	value="@CurrentCustomer.Fullname" aria-label="Disabled input example" disabled readonly>
+		</div>
+		<div class="field">
+			<label class="label">Направление</label> <input class="form-control valueField" type="text"
+	value="@CurrentCustomer.Tariff" aria-label="Disabled input example" disabled readonly>
+		</div>
+		<div class="field">
+			<label class="label">Страна</label> <input class="form-control valueField" type="text"
+	value="@CurrentCustomer.Country" aria-label="Disabled input example" disabled readonly>
+		</div>
+	</div>
+	
+	@*<h3>Книги</h3>
+	<table class="table">
+		<thead>
+		<th >Название</th>
+		<th >Жанр</th>
+		</thead>
+		<tbody>
+		@foreach (var b in CurrentCustomer.Books)
+		{
+			<tr @onclick="()=>toItem(b)">
+				<td>@b.Title</td>
+				<td>@b.Genre</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+	@*
+	<div class="row">
+		<div class="col-md-6 "> </div>
+
+		<div class="col-md-2">
+			<div class="edit_customer" @onclick="() => editCustomer(Int32.Parse(CustomerId))" >Изменить автора</div>
+		</div>
+		<div class="col-md-1 "> </div>
+		<div class="col-md-2">
+			<div class="del_customer" @onclick="() => deleteCustomer(Int32.Parse(CustomerId))" >Удалить автора</div>
+		</div>
+		<div class="col-md-1 "> </div>
+	</div>
+	*@
+}
+@code {
+	[Parameter]
+	public string CustomerId { get; set; }
+
+	public List<Data.Models.Customer> Customers { get; set; }
+	public Data.Models.Customer? CurrentCustomer { get; set; }
+	[Inject]
+	private ICustomerProvider customersProvider { get; set; }
+	protected async override Task OnInitializedAsync()
+	{
+		CurrentCustomer = await customersProvider.GetOne(Int32.Parse(CustomerId));
+		Customers = await customersProvider.GetAll();
+		Console.WriteLine(CurrentCustomer);
+		base.OnInitialized();
+	}
+	
+	@*
+	public void toItem(Book book)
+	{
+		_navigationManager.NavigateTo($"/Book/{book.Id}");
+	}
+	private async void editCustomer(int id)
+    {
+        var post = await customersProvider.GetOne(id);
+        _navigationManager.NavigateTo($"/Customer/{id}/edit");
+    }
+
+	private async void deleteCustomer(int id)
+    {
+        await customersProvider.Remove(id);
+        _navigationManager.NavigateTo("/Customers");
+    }
+	*@
+}

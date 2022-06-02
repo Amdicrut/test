@@ -1,0 +1,201 @@
+body{
+  background-color: #f2f2f2;
+  font-family: "Lato";
+  font-weight: 3000;
+  font-size: 16px;
+  color: #555;
+  margin-top: 0px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  color: #333;
+}
+
+p{
+  line-height: 28px;
+  margin-bottom: 25px;
+}
+
+.centered{
+  text-align: center;
+}
+
+a{
+  color: #f85c37;
+}
+
+a:hover, a:focus {
+  color: #7b7b7b;
+  text-decoration: none;
+  outline: 0;
+}
+
+hr{
+display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.navbar {
+    font-weight: 800;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-inverse {
+background: #2d2d2d;
+    border-color:#2d2d2d;
+}
+
+
+.navbar-inverse .navbar-brand {
+color: #999;
+    font-weight: bolder;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+#headerwrap {
+background: url(img/1_405.jpg) no-repeat center top;
+    margin-top: -10px;
+    padding-top: 20px;
+    text-align: center;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 500px;
+    width: 1004;
+background-size: 100%;
+
+}
+
+#headerwrap h1 {
+margin-top: 100px;
+    color: white;
+    font-size: 70px;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+
+#headerwrap h2 {
+    color: white;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.w{
+padding-top: 35px;
+}
+
+.w h4{
+font-size: 25px;
+}
+
+#dg {
+background: #c0c0c0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+
+
+.wb {
+padding-top: 35px;
+    margin-bottom:
+}
+
+.wb h4 {
+font-size: 35px;
+}
+
+
+
+#f {
+background: #2d2d2d;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#f i {
+color: #bdbdbd;
+    font-size: 30px;
+    padding: 20px;
+}
+
+ .rightpic {
+    float: right; /* Выравнивание по правому краю */
+    margin: 0 0 5px 5px; /* Отступы вокруг фотографии */
+   }
+
+.teni {
+font-family: system-ui;
+  font-size: 25px;
+  color: white;
+  text-shadow:
+    2px 2px 2px #000000,
+    0 2px 2px #000000,
+    -2px 0 2px #000000,
+    0 -2px 2px #000000
+}
+.b1{
+    color: #ffffff;
+}
+
+main{
+    padding: 2% 5% 10%;
+}
+
+footer{
+    background-color: aliceblue;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.catalog{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.catalog-element{
+    background-color: aliceblue;
+    width: 200px;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 8px;
+}
+
+.car-img{
+    width: 45%;
+    border-radius: 5%;
+}
+
+.nav-element{
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+.description-block{
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 2%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+#box-name{
+    color: #5e90ff;
+    font-size: 2em;
+}

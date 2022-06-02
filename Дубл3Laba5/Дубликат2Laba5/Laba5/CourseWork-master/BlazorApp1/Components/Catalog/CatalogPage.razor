@@ -1,0 +1,40 @@
+﻿@using BlazorApp1.Data.Services
+@using BlazorApp1.Data.Models
+@inject NavigationManager _navigationManager
+
+
+@if (cargos != null)
+{
+	<table class="table table-my-style my-3 mx-auto" id="supplies-table">
+		<thead class="thead-my-style">
+			<tr>
+				<th class="py-auto" scope="row">#</th>
+				<th class="py-auto" scope="row">Количество</th>
+				<th class="py-auto" scope="row">Срок</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var cargo in cargos)
+			{
+				<tr>
+					<td class="py-auto" scope="row">@cargo.Id</td>
+					<td class="py-auto" scope="row">@cargo.Amount</td>
+					<td class="py-auto" scope="row">@cargo.Terms</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+
+@code {
+		[Inject]
+		private ICargoProvider CargoProvider { get; set; }
+		private List<Cargo> cargos = new List<Cargo>();
+
+	protected async override Task OnInitializedAsync()
+	{
+		cargos = await CargoProvider.GetAll();
+
+	}
+}

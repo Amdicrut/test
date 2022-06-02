@@ -1,0 +1,53 @@
+﻿@using BlazorApp1.Data.Models
+@using BlazorApp1.Data.Services
+@inject NavigationManager _navigationManager
+
+<div class="container-fluid">
+	<div class="break-min"></div>
+	<h1>Заказчики</h1>
+	<div class="break-min"></div>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>ФИО</th>
+			<th>Страна</th>
+			<th>Тариф</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (customers != null)
+		{
+			@foreach (var customer in customers)
+			{
+				<tr @onclick="()=>toItem(customer)">
+					<td>@customer.Id</td>
+					<td>@customer.Fullname</td>
+					<td>@customer.Country</td>
+					<td>@customer.Tariff</td>
+
+				</tr>
+
+			}//////??????????????????????
+
+		}
+	</tbody>
+</table>
+
+
+@code {
+	private List<Customer>? customers;
+	[Inject]
+	private ICustomerProvider customersProvider { get; set; }
+	protected override async Task OnInitializedAsync()
+	{
+		customers = await customersProvider.GetAll();
+	}
+
+	public void toItem(Customer customer)
+	{
+		_navigationManager.NavigateTo($"/Customer/{customer.Id}");
+	}
+
+}
